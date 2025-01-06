@@ -1,14 +1,33 @@
 {
+<<<<<<< HEAD
   "name": "vy-stream",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
+=======
+  "name": "nextly-template",
+  "version": "2.0.0",
+  "description": "Nextly Landing Page Template",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+>>>>>>> 4bf8ce0 (commit2)
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
-  "description": "Nextly Landing Page Template",
+<<<<<<< HEAD
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "next": "15.1.0"
+  },
+  "devDependencies": {
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1"
+  }
+=======
   "repository": {
     "type": "git",
     "url": "git+https://github.com/web3templates/nextly-template.git"
@@ -46,4 +65,5 @@
     "url": "https://github.com/web3templates/nextly-template/issues"
   },
   "homepage": "https://github.com/web3templates/nextly-template#readme"
+>>>>>>> 4bf8ce0 (commit2)
 }
