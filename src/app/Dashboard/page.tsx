@@ -62,6 +62,26 @@ export default function Dashboard() {
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   };
 
+  const fetchTransactions = async () => {
+    try {
+      setLoading(true);
+      const { data, error: fetchError } = await supabase
+        .from('transactions')
+        .select('*')
+        .eq('user_id', userId)
+        .order('date', { ascending: false });
+
+      if (fetchError) throw fetchError;
+
+      setTransactions(data as Transaction[]);
+    } catch (err) {
+      setError("Failed to fetch transactions");
+      console.error(err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   useEffect(() => {
     const getCurrentUser = async () => {
       try {
@@ -87,27 +107,7 @@ export default function Dashboard() {
     if (userId) {
       fetchTransactions();
     }
-  }, [userId]);
-
-  const fetchTransactions = async () => {
-    try {
-      setLoading(true);
-      const { data, error: fetchError } = await supabase
-        .from('transactions')
-        .select('*')
-        .eq('user_id', userId)
-        .order('date', { ascending: false });
-
-      if (fetchError) throw fetchError;
-
-      setTransactions(data as Transaction[]);
-    } catch (err) {
-      setError("Failed to fetch transactions");
-      console.error(err);
-    } finally {
-      setLoading(false);
-    }
-  };
+  }, [userId, fetchTransactions]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

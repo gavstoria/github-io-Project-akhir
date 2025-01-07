@@ -32,7 +32,7 @@ export default function Home() {
       <Video videoId="fZ0D0cnR88E" />
 
       <SectionTitle
-        preTitle="Testimoni"
+        preTitle="Testimoni" 
         title="Kisah Sukses Pengguna BizPlanner"
       >
         Dengarkan pengalaman langsung dari para pebisnis yang telah menggunakan BizPlanner

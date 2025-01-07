@@ -55,12 +55,12 @@ export default function ProfilePage() {
         if (error) throw error
 
         if (profile) {
-          setUserData({
-            ...userData,
+          setUserData(prevUserData => ({
+            ...prevUserData,
             ...profile,
             avatar: profile.avatar_url || '/default-avatar.png',
             photos: profile.photos || []
-          })
+          }))
           setPreviewUrl(profile.avatar_url || '/default-avatar.png')
         }
       } catch (error) {
@@ -71,7 +71,7 @@ export default function ProfilePage() {
     }
 
     fetchProfile()
-  }, [])
+  }, [supabase])
 
   const handleImageChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
